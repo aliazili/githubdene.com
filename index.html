@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.3">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+        
+        #canvas {
+            border: 1px solid #f5f3f4;
+            background-color: rgb(11, 10, 10);
+        }
+    </style>
+    <title>Daire Üzerinde Yatay Çizgi</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+
+    <script>
+        const ctx = canvas.getContext("2d");
+        const ctx1 = canvas.getContext("2d");
+        const ctx2 = canvas.getContext("2d");
+        const ctx3 = canvas.getContext("2d");
+        const ctx4 = canvas.getContext("2d");
+        const ctx5 = canvas.getContext("2d");
+        const ctx6 = canvas.getContext("2d");
+        const ctx7 = canvas.getContext("2d");
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 150;
+        let angle = Math.random(10);
+        let angle1 = 0;
+        let angle2 = 10;
+        let angle3 = 20;
+        let angle4 = 30;
+        let angle5 = 40;
+        let angle6 = 50;
+        let angle7 = 60;
+
+        function draw() {
+            // Canvas'ı temizle
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx1.clearRect(0, 0, canvas.width, canvas.height);
+            ctx2.clearRect(0, 0, canvas.width, canvas.height);
+            ctx3.clearRect(0, 0, canvas.width, canvas.height);
+            ctx4.clearRect(0, 0, canvas.width, canvas.height);
+            ctx5.clearRect(0, 0, canvas.width, canvas.height);
+            ctx6.clearRect(0, 0, canvas.width, canvas.height);
+            ctx7.clearRect(0, 0, canvas.width, canvas.height);
+
+
+
+            // Daire üzerindeki noktanın koordinatları
+            const x = centerX + radius * Math.cos(angle);
+            const y = centerY + radius * Math.sin(angle);
+
+            const x1 = centerX + radius * Math.cos(angle1);
+            const y1 = centerY + radius * Math.sin(angle1);
+            const x2 = centerX + radius * Math.cos(angle2);
+            const y2 = centerY + radius * Math.sin(angle2);
+
+            const x3 = centerX + radius * Math.cos(angle3);
+            const y3 = centerY + radius * Math.sin(angle3);
+            const x4 = centerX + radius * Math.cos(angle4);
+            const y4 = centerY + radius * Math.sin(angle4);
+
+            const x5 = centerX + radius * Math.cos(angle5);
+            const y5 = centerY + radius * Math.sin(angle5);
+            const x6 = centerX + radius * Math.cos(angle6);
+            const y6 = centerY + radius * Math.sin(angle6);
+            const x7 = centerX + radius * Math.cos(angle7);
+            const y7 = centerY + radius * Math.sin(angle7);
+
+            // Yatay çizgiyi çiz
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(x, y);
+            ctx.arc(centerX, centerY, radius, 0, 180);
+            ctx.strokeStyle = "#000000";
+            ctx.lineWidth = 2;
+
+            ctx.stroke();
+
+            ctx1.beginPath();
+            ctx1.moveTo(centerX, centerY);
+            ctx1.lineTo(x1, y1);
+
+            ctx1.strokeStyle = "#f362dd";
+            ctx1.lineWidth = 2;
+            ctx1.stroke();
+
+            ctx7.beginPath();
+            ctx7.moveTo(centerX, centerY);
+            ctx7.lineTo(x7, y7);
+
+            ctx7.strokeStyle = "#62dd9b";
+            ctx7.lineWidth = 6;
+            ctx7.stroke();
+
+            ctx6.beginPath();
+            ctx6.moveTo(centerX, centerY);
+            ctx6.lineTo(x6, y6);
+
+            ctx6.strokeStyle = "#e7f362";
+            ctx6.lineWidth = 7;
+            ctx6.stroke();
+
+
+            ctx5.beginPath();
+            ctx5.moveTo(centerX, centerY);
+            ctx5.lineTo(x5, y5);
+
+            ctx5.strokeStyle = "#ebe465";
+            ctx5.lineWidth = 2;
+            ctx5.stroke();
+
+            ctx4.beginPath();
+            ctx4.moveTo(centerX, centerY);
+            ctx4.lineTo(x4, y4);
+
+            ctx4.strokeStyle = "#b76f36";
+            ctx4.lineWidth = 4;
+            ctx4.stroke();
+
+            var r = Math.round(Math.random() * 250);
+            var r1 = Math.round(Math.random() * 20);
+            var renk = 'rgba(100,' + r + ',2,' + r1 + ')';
+
+            ctx3.beginPath();
+            ctx3.moveTo(centerX, centerY);
+            ctx3.lineTo(x3, y3);
+
+            ctx3.strokeStyle = renk;
+            ctx3.lineWidth = 5;
+            ctx3.stroke();
+
+            ctx2.beginPath();
+            ctx2.moveTo(centerX, centerY);
+            ctx2.lineTo(x2, y2);
+
+
+            ctx2.strokeStyle = renk // "#e86f54";
+            ctx2.lineWidth = 3;
+            ctx2.stroke();
+
+
+
+
+
+            // Açıyı güncelle
+            angle += (Math.PI * Math.random(10) / 70); // 1 derece
+            angle1 -= (Math.PI * Math.random(5) / 70); // 1 derece
+
+            angle2 += (Math.PI * Math.random(5) / 70); // 1 derece
+            angle3 -= (Math.PI * Math.random(5) / 77); // 1 derece
+
+            angle4 += (Math.PI * Math.random(5) / 74); // 1 derece
+            angle5 -= (Math.PI * Math.random(5) / 71); // 1 derece
+
+            angle6 += (Math.PI * Math.random(5) / 72); // 1 derece
+            angle7 -= (Math.PI * Math.random(5) / 70); // 1 derece
+
+
+
+
+
+
+            setTimeout(draw, 150);
+            // requestAnimationFrame(draw);
+        }
+
+        // Çizimi başlat
+
+        draw();
+    </script>
+</body>
+
+</html>
